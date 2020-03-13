@@ -12,3 +12,55 @@ i) Only one disk may be moved at a time ii)
 Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, 
 on top of the other disks that may already be present on that rod. iii) 
 A larger disk may not placed on top of a smaller disk*/
+
+const small = [1];
+const medium = [2,2];
+const large = [3,3,3];
+
+const rodA = [small,medium,large];
+const rodB = [];
+const rodC = [];
+
+const hanoi = () => {
+    console.log('put small on rodC from rodA')
+    rodC.unshift(rodA[0]);
+    rodA.shift()
+    console.log('rodC ', rodC);
+    
+    console.log('put medium on rodB from rodA')
+    rodB.unshift(rodA[0]);
+    rodA.shift();
+    console.log('rodB ', rodB);
+    
+    console.log('put small on top of rodB from rodC')
+    rodB.unshift(rodC[0])
+    rodC.shift();
+    console.log('rodB', rodB)
+    
+    console.log('put large on top of rodC from rodA')
+    rodC.unshift(rodA[0])
+    rodA.shift();
+    console.log('rodC', rodC)
+    
+    console.log('put small on top of rodA from robB')
+    rodA.unshift(rodB[0])
+    rodB.shift();
+    console.log('rodA',rodA)
+    
+    console.log('put medium on top of rodC from rodB');
+    rodC.unshift(rodB[0]);
+    rodB.shift();
+    console.log('rodC', rodC);
+    
+    console.log('put small on top of rodC from rodA');
+    rodC.unshift(rodA[0])
+    rodA.shift();
+    
+    for(let i =0; i < rodC.length; i++){
+        console.log(rodC[i])
+    }
+
+
+}
+
+hanoi();
