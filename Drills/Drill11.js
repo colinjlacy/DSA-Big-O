@@ -13,6 +13,8 @@ Each move consists of taking the upper disk from one of the rods and sliding it 
 on top of the other disks that may already be present on that rod. iii) 
 A larger disk may not placed on top of a smaller disk*/
 
+//test push
+
 const small = [1];
 const medium = [2, 2];
 const large = [3, 3, 3];
