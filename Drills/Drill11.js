@@ -46,6 +46,6 @@ function canMoveToStack(disk, stack) {
 	return disk < stack[0];
 }
 
-//COMMENT!!!
+//COMMENT???
 
 hanoi();
