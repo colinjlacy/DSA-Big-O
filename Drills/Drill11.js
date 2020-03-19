@@ -15,52 +15,35 @@ A larger disk may not placed on top of a smaller disk*/
 
 //test push
 
-const small = [1];
-const medium = [2, 2];
-const large = [3, 3, 3];
+const small = 1;
+const medium = 2;
+const large = 3;
+const target = [small, medium, large];
 
-const rodA = [small, medium, large];
-const rodB = [];
-const rodC = [];
+const rods = [
+	[small, medium, large],
+	[],
+	[]
+];
+
+let lastMovedDisk;
+let currentRod = 0;
+let direction = "right";
 
 const hanoi = () => {
-  console.log("put small on rodC from rodA");
-  rodC.unshift(rodA[0]);
-  rodA.shift();
-  console.log("rodC ", rodC);
 
-  console.log("put medium on rodB from rodA");
-  rodB.unshift(rodA[0]);
-  rodA.shift();
-  console.log("rodB ", rodB);
-
-  console.log("put small on top of rodB from rodC");
-  rodB.unshift(rodC[0]);
-  rodC.shift();
-  console.log("rodB", rodB);
-
-  console.log("put large on top of rodC from rodA");
-  rodC.unshift(rodA[0]);
-  rodA.shift();
-  console.log("rodC", rodC);
-
-  console.log("put small on top of rodA from robB");
-  rodA.unshift(rodB[0]);
-  rodB.shift();
-  console.log("rodA", rodA);
-
-  console.log("put medium on top of rodC from rodB");
-  rodC.unshift(rodB[0]);
-  rodB.shift();
-  console.log("rodC", rodC);
-
-  console.log("put small on top of rodC from rodA");
-  rodC.unshift(rodA[0]);
-  rodA.shift();
-
-  for (let i = 0; i < rodC.length; i++) {
-    console.log(rodC[i]);
-  }
 };
+
+function isLimit(index) {
+	return index === 0 || index === rods.length - 1;
+}
+
+function setLastMoved(disk) {
+	lastMovedDisk = disk;
+}
+
+function canMoveToStack(disk, stack) {
+	return disk < stack[0];
+}
 
 hanoi();
