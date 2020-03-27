@@ -144,7 +144,39 @@ const compare = (l1, l2) => {
   return value;
 };
 
-const modeNFreq = list => {};
+const modeNFreq = list => {
+  if (!list) {
+    return null;
+  }
+  let obj = {};
+  let highestFreq = 0;
+  let highestMode = "";
+  //loop through the list
+  list.forEach(mode => {
+    let frequency = 0;
+    //compare each mode to the list
+    for (let j = 0; j < list.length; j++) {
+      //store each mode(number) as object as key:value pair where key = mode, value = frequency
+      //if key exists already instead of adding, increase frequency value instead
+      if (mode === list[j]) {
+        frequency++;
+        obj[mode] = frequency;
+      } else {
+        obj[mode] = frequency;
+      }
+      //initially highestFreq is 0 so it will be 1, then check each iteration if frequency is higher the current high
+      //if it is then set it as the highestFreq and set the mode as the highestMode
+      if (highestFreq < frequency) {
+        highestMode = mode;
+        highestFreq = frequency;
+      }
+    }
+  });
+
+  //return key(mode) and value(frequency)
+  result = `mode: ${highestMode}, frequency: ${highestFreq}`;
+  return result;
+};
 
 function main() {
   //practice 1
@@ -197,6 +229,7 @@ function main() {
 
   console.log(compare(ll1, ll2));
 
+  //input 2
   list1 = ["B", "i", "l", "b", "o"];
   list2 = ["B", "i", "l", "b", "o"];
 
@@ -210,8 +243,9 @@ function main() {
 
   console.log(compare(ll3, ll4));
 
+  //input 3
   list1 = ["B", "i", "l", "b", "o", "a"];
-  (list2 = ["B", "i", "l", "b", "o"]), "b";
+  list2 = ["B", "i", "l", "b", "o", "b"];
 
   list1.forEach(let => {
     ll5.insertLast(let);
@@ -222,6 +256,10 @@ function main() {
   });
 
   console.log(compare(ll5, ll6));
+
+  //practice 5
+  const num = [1, 2, 3, 6, 10, 3, 5, 6, 3, 3];
+  console.log(modeNFreq(num));
 }
 
 main();
